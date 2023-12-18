@@ -1,50 +1,13 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
-<h:head>
-	<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
-	<meta name="viewport"
-		content="user-scalable=no, width=device-width, initial-scale=1" />
-</h:head>
-<h:body>
-	<style>
-body {
-	margin: 0px;
-	padding: 0px;
-}
-</style>
-	<p:splitter style="min-width:100%; min-height:100vh" styleClass="mb-5">
-		<p:splitterPanel
-			styleClass="flex align-items-center justify-content-center"
-			position="west" resizable="false" size="10" minSize="10" maxSize="10">
-			<h:form>
-				<p:growl id="messages" showDetail="true" />
-				<p:menu toggleable="true" style="height: 100%;">
-					<p:submenu label="Options">
-						<p:menuitem value="Usuarios" update="messages" ajax="false"
-							icon="pi pi-user" />
-						<p:menuitem value="Agregar usuario" update="messages"
-							icon="pi pi-user-plus" />
-					</p:submenu>
-					<p:submenu label="Navigations">
-						<p:menuitem value="Website" url="http://www.primefaces.org"
-							icon="pi pi-external-link" />
-						<p:menuitem value="Internal" outcome="" icon="pi pi-upload" />
-						<p:menuitem value="Update (right click open in new tab)"
-							update="messages" url="http://www.primefaces.org"
-							icon="pi pi-thumbs-up" />
-					</p:submenu>
-					<p:submenu label="Ventas">
-					</p:submenu>
-				</p:menu>
-			</h:form>
-		</p:splitterPanel>
-		<p:splitterPanel
-			styleClass="flex align-items-center justify-content-center"
-			position="west" resizable="false" size="90" minSize="90" maxSize="90">
-            Panel 2
-        </p:splitterPanel>
-	</p:splitter>
-</h:body>
-</html>
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="contenido">
+	
+		Holi
+	
+	</ui:define>
+</ui:composition>
