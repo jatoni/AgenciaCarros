@@ -5,6 +5,7 @@ package com.mx.web.app.dao.impl;
 
 import javax.persistence.EntityManagerFactory;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.EntityManager;
@@ -19,7 +20,12 @@ import com.mx.web.app.entity.TbEmployee;
  * 
  *         clase para el manejo de capa de datos
  */
-public class TbEmployeeDaoImpl implements TbEmployeeDao {
+public class TbEmployeeDaoImpl implements TbEmployeeDao, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2734337936902895624L;
 
 	private EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("VelocidadTotal");
 

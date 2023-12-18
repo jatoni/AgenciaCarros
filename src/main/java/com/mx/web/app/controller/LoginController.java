@@ -3,7 +3,7 @@
  */
 package com.mx.web.app.controller;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -12,6 +12,7 @@ import com.mx.web.app.dao.TbEmployeeDao;
 import com.mx.web.app.utils.CommonUtils;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author jat_a
@@ -20,8 +21,13 @@ import java.io.IOException;
  *         Clase que ayuda al controlador del logeo
  */
 @Named("loginController")
-@RequestScoped
-public class LoginController {
+@SessionScoped
+public class LoginController implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7986869361800919069L;
 
 	@Inject
 	private TbEmployeeDao tbEmployeeDaoImpl;
