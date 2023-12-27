@@ -10,12 +10,17 @@ import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+import org.modelmapper.ModelMapper;
+
 /**
  * @author jat_a
  * 
  *         Clase para crear funciones globales o constantes globales.
  */
 public class CommonUtils {
+
+	private final static ModelMapper mapper = new ModelMapper();
+
 	/**
 	 * @param severity
 	 * @param summary
@@ -37,4 +42,10 @@ public class CommonUtils {
 		String contextPath = externalContext.getRequestContextPath();
 		externalContext.redirect(contextPath + url);
 	}
+
+	public static <T1, T2> T2 map(T1 object, T2 objectClass) {
+		T2 map = ((T2) mapper.map(object, objectClass.getClass()));
+		return map;
+	}
+
 }

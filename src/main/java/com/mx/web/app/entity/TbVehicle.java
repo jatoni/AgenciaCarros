@@ -25,7 +25,7 @@ public class TbVehicle implements Serializable {
 	private String fuelType;
 
 	@Lob
-	private byte[] image;
+	private byte[] imageVehicle;
 
 	private String model;
 
@@ -90,12 +90,12 @@ public class TbVehicle implements Serializable {
 		this.fuelType = fuelType;
 	}
 
-	public byte[] getImage() {
-		return this.image;
+	public byte[] getImageVehicle() {
+		return this.imageVehicle;
 	}
 
-	public void setImage(byte[] image) {
-		this.image = image;
+	public void setImageVehicle(byte[] imageVehicle) {
+		this.imageVehicle = imageVehicle;
 	}
 
 	public String getModel() {

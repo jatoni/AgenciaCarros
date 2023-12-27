@@ -4,16 +4,22 @@
 package com.mx.web.app.dao.impl;
 
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import com.mx.web.app.dao.TbEmployeeDao;
+import com.mx.web.app.dao.TbPositionDao;
+import com.mx.web.app.dto.EmployeeDto;
 import com.mx.web.app.entity.TbEmployee;
+import com.mx.web.app.utils.CommonUtils;
 
 /**
  * @author jat_a
@@ -29,6 +35,13 @@ public class TbEmployeeDaoImpl implements TbEmployeeDao, Serializable {
 
 	private EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("VelocidadTotal");
 
+	private TbEmployee employee = new TbEmployee();
+
+	private EntityTransaction et;
+
+	@Inject
+	private TbPositionDao tbPositionDaoImpl;
+
 	@Override
 	public boolean login(String usuario, String password) {
 		try {
@@ -43,6 +56,30 @@ public class TbEmployeeDaoImpl implements TbEmployeeDao, Serializable {
 			}
 		} catch (Exception e) {
 			return false;
+		}
+	}
+
+	@Override
+	public boolean saveEmployee(EmployeeDto employeeDto) {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		et = em.getTransaction();
+		TbEmployee employeeToSave = CommonUtils.map(employeeDto, employee);
+		try {
+			employeeToSave.setHireDate(new Date());
+			employeeToSave.setTbPosition(tbPositionDaoImpl.getPositionById(1));
+			System.out.println(employeeToSave.toString());
+//			et.begin();
+//			em.persist(employeeToSave);
+//			et.commit();
+			return true;
+		} catch (Exception e) {
+			if (Objects.isNull(et)) {
+				et.rollback();
+			}
+			e.printStackTrace();
+			return false;
+		} finally {
+			em.close();
 		}
 	}
 

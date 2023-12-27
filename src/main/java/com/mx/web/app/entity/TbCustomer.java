@@ -29,7 +29,7 @@ public class TbCustomer implements Serializable {
 
 	private String name;
 
-	private int phone;
+	private String phone;
 
 	private String postalCode;
 
@@ -90,11 +90,11 @@ public class TbCustomer implements Serializable {
 		this.name = name;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return this.phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 

@@ -5,19 +5,19 @@ import javax.persistence.*;
 import java.sql.Time;
 import java.util.List;
 
-
 /**
  * The persistent class for the tb_position database table.
  * 
  */
 @Entity
-@Table(name="tb_position")
-@NamedQuery(name="TbPosition.findAll", query="SELECT t FROM TbPosition t")
+@Table(name = "tb_position")
+@NamedQueries({ @NamedQuery(name = "TbPosition.findAll", query = "SELECT t FROM TbPosition t"),
+		@NamedQuery(name = "TbPosition.finByEmail", query = "SELECT t FROM TbPosition t WHERE t.positionID = :id") })
 public class TbPosition implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long positionID;
 
 	private Time departureTime;
@@ -28,8 +28,8 @@ public class TbPosition implements Serializable {
 
 	private int salary;
 
-	//bi-directional many-to-one association to TbEmployee
-	@OneToMany(mappedBy="tbPosition")
+	// bi-directional many-to-one association to TbEmployee
+	@OneToMany(mappedBy = "tbPosition")
 	private List<TbEmployee> tbEmployees;
 
 	public TbPosition() {

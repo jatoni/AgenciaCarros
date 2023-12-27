@@ -41,7 +41,7 @@
 				<b:row>
 					<b:column col-lg="2" col-md="3" col-sm="0" col-xs="0"></b:column>
 					<b:column col-lg="4" col-md="6" col-sm="12" col-xs="12">
-						<b:commandButton action="#{loginController.login()}"
+						<b:commandButton ajax="true" action="#{loginController.login()}"
 							update="formLogin, growl" value="Login" look="primary"
 							style="width: 100%;" />
 						<b:commandButton value="Register" look="link" style="width: 100%;" />

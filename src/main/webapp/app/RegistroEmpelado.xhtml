@@ -1,0 +1,124 @@
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="contenido">
+		<style>
+.card {
+	padding: 0px;
+	margin: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ui-menuitem-link ui-corner-all {
+	font-size: 2rem !important;
+}
+
+h3 span .ui-icon ui-icon-triangle-1-e {
+	font-size: 50px;
+}
+</style>
+		<h:form id="registrarUsuario">
+			<p:growl id="growl" showDetail="true"
+				skipDetailIfEqualsSummary="true" />
+			<div class="card">
+				<h1>Registro de clientes</h1>
+				<b:container>
+					<b:row>
+						<b:column col-lg="5" col-md="6" col-xs="12">
+							<b:inputText id="name" label="Nombre Empleado"
+								value="#{registroController.employeeDto.firstname}"
+								autocomplete="true" required="true"
+								requiredMessage="El nombre es necesario">
+								<f:facet name="prepend">
+									<b:icon name="user" />
+								</f:facet>
+							</b:inputText>
+							<b:message for="@previous" />
+						</b:column>
+
+						<b:column col-lg="5" col-md="6" col-xs="12">
+							<b:inputText id="lastname" autocomplete="true" required="true"
+								requiredMessage="El apellido completo es necesario"
+								label="Apellidos Empleado"
+								value="#{registroController.employeeDto.lastName}">
+								<f:facet name="prepend">
+									<b:icon name="user" />
+								</f:facet>
+							</b:inputText>
+							<b:message for="@previous" />
+						</b:column>
+
+						<b:column col-lg="5" col-md="6" col-xs="12">
+							<b:inputText id="phone" label="Telefono Empleado"
+								value="#{registroController.employeeDto.phone}"
+								autocomplete="true" required="true"
+								requiredMessage="El Telefono es necesario">
+								<f:facet name="prepend">
+									<b:icon name="phone" />
+								</f:facet>
+							</b:inputText>
+							<b:message for="@previous" />
+						</b:column>
+
+						<b:column col-lg="5" col-md="6" col-xs="12">
+							<b:inputText id="email" label="Email Empleado"
+								value="#{registroController.employeeDto.email}"
+								autocomplete="true" required="true"
+								requiredMessage="El email es necesario" />
+							<b:message for="@previous" />
+						</b:column>
+
+						<b:column col-lg="5" col-md="6" col-xs="12">
+							<b:inputSecret id="password" label="Password Empelado"
+								value="#{registroController.employeeDto.password}"
+								autocomplete="true" required="true"
+								requiredMessage="El password es necesario"></b:inputSecret>
+							<b:message for="@previous" />
+						</b:column>
+						<b:column col-lg="5" col-md="6" col-xs="12">
+							<p:outputLabel value="Fecha de contratacion"></p:outputLabel>
+							<p:calendar id="datePicker"
+								value="#{registroController.employeeDto.hireDate}"
+								showOn="button" pattern="MM/dd/yyyy" readonlyInput="true"
+								mindate="#{registroController.currentDate}"
+								maxdate="#{registroController.currentDate}"
+								disabledWeekends="true" />
+
+						</b:column>
+
+						<b:column col-lg="5" col-md="6" col-xs="12">
+							<p:outputLabel value="Foto Empleado"></p:outputLabel>
+							<p:fileUpload required="true" sizeLimit="102400"
+								allowTypes="/(\.|\/)(png)$/"
+								invalidSizeMessage="Maximum file size allowed is 100 KB"
+								invalidFileMessage="only png is allowed" update="growl"
+								requiredMessage="La imagen es requerida"
+								listener="#{registroController.handleFileUpload}"
+								mode="advanced" multiple="false" skinSimple="true" />
+						</b:column>
+
+					</b:row>
+					<b:row>
+						<b:column col-lg="2" col-md="3" col-sm="0" col-xs="0"></b:column>
+						<b:column col-lg="4">
+							<b:commandButton action="#{registroController.saveEmployee()}"
+								update="registrarUsuario, growl" style="width: 40%"
+								look="success" value="Crear Usuario" />
+						</b:column>
+						<b:column col-lg="4">
+							<b:commandButton style="width: 40%" look="danger"
+								value="Cancelar" />
+						</b:column>
+						<b:column col-lg="2" col-md="3" col-sm="0" col-xs="0"></b:column>
+					</b:row>
+				</b:container>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -2,6 +2,8 @@ package com.mx.web.app.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -27,11 +29,14 @@ public class TbEmployee implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date hireDate;
 
-	private String lastaName;
+	@Lob
+	private byte[] imagenEmployee;
+
+	private String lastName;
 
 	private String password;
 
-	private int phone;
+	private String phone;
 
 	// bi-directional many-to-one association to TbPosition
 	@ManyToOne
@@ -77,12 +82,20 @@ public class TbEmployee implements Serializable {
 		this.hireDate = hireDate;
 	}
 
-	public String getLastaName() {
-		return this.lastaName;
+	public byte[] getImagenEmployee() {
+		return this.imagenEmployee;
 	}
 
-	public void setLastaName(String lastaName) {
-		this.lastaName = lastaName;
+	public void setImagenEmployee(byte[] imagenEmployee) {
+		this.imagenEmployee = imagenEmployee;
+	}
+
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getPassword() {
@@ -93,11 +106,11 @@ public class TbEmployee implements Serializable {
 		this.password = password;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return this.phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
@@ -129,6 +142,33 @@ public class TbEmployee implements Serializable {
 		tbSale.setTbEmployee(null);
 
 		return tbSale;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("TbEmployee [employeeID=");
+		builder.append(employeeID);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", firstName=");
+		builder.append(firstName);
+		builder.append(", hireDate=");
+		builder.append(hireDate);
+		builder.append(", imagenEmployee=");
+		builder.append(Arrays.toString(imagenEmployee));
+		builder.append(", lastName=");
+		builder.append(lastName);
+		builder.append(", password=");
+		builder.append(password);
+		builder.append(", phone=");
+		builder.append(phone);
+		builder.append(", tbPosition=");
+		builder.append(tbPosition);
+		builder.append(", tbSales=");
+		builder.append(tbSales);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }
