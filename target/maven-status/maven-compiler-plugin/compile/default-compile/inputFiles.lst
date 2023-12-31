@@ -1,10 +1,11 @@
 C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dto\CustomerDto.java
 C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dao\TbCustomerDao.java
 C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\utils\CommonUtils.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\controller\RegistroController.java
+C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\controller\RegistroCustomerController.java
 C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbVehicle.java
 C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dao\impl\TbPositionDaoImpl.java
 C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbBrand.java
+C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\controller\RegisterEmployeeController.java
 C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbCustomer.java
 C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dto\EmployeeDto.java
 C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbInsurance.java

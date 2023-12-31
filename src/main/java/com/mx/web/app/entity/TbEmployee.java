@@ -3,7 +3,6 @@ package com.mx.web.app.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -142,33 +141,6 @@ public class TbEmployee implements Serializable {
 		tbSale.setTbEmployee(null);
 
 		return tbSale;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("TbEmployee [employeeID=");
-		builder.append(employeeID);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", firstName=");
-		builder.append(firstName);
-		builder.append(", hireDate=");
-		builder.append(hireDate);
-		builder.append(", imagenEmployee=");
-		builder.append(Arrays.toString(imagenEmployee));
-		builder.append(", lastName=");
-		builder.append(lastName);
-		builder.append(", password=");
-		builder.append(password);
-		builder.append(", phone=");
-		builder.append(phone);
-		builder.append(", tbPosition=");
-		builder.append(tbPosition);
-		builder.append(", tbSales=");
-		builder.append(tbSales);
-		builder.append("]");
-		return builder.toString();
 	}
 
 }

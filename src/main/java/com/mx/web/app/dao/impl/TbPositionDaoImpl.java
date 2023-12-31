@@ -31,9 +31,6 @@ public class TbPositionDaoImpl implements TbPositionDao, Serializable {
 	public List<TbPosition> getAllPositions() {
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
 		TypedQuery<TbPosition> query = em.createNamedQuery("TbPosition.findAll", TbPosition.class);
-		for (TbPosition position : query.getResultList()) {
-			System.out.println(position.getName());
-		}
 		return query.getResultList();
 	}
 

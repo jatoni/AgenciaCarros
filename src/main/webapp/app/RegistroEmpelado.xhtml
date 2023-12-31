@@ -32,7 +32,7 @@ h3 span .ui-icon ui-icon-triangle-1-e {
 					<b:row>
 						<b:column col-lg="5" col-md="6" col-xs="12">
 							<b:inputText id="name" label="Nombre Empleado"
-								value="#{registroController.employeeDto.firstname}"
+								value="#{registerEmployeeController.employeeDto.firstname}"
 								autocomplete="true" required="true"
 								requiredMessage="El nombre es necesario">
 								<f:facet name="prepend">
@@ -46,7 +46,7 @@ h3 span .ui-icon ui-icon-triangle-1-e {
 							<b:inputText id="lastname" autocomplete="true" required="true"
 								requiredMessage="El apellido completo es necesario"
 								label="Apellidos Empleado"
-								value="#{registroController.employeeDto.lastName}">
+								value="#{registerEmployeeController.employeeDto.lastName}">
 								<f:facet name="prepend">
 									<b:icon name="user" />
 								</f:facet>
@@ -56,7 +56,7 @@ h3 span .ui-icon ui-icon-triangle-1-e {
 
 						<b:column col-lg="5" col-md="6" col-xs="12">
 							<b:inputText id="phone" label="Telefono Empleado"
-								value="#{registroController.employeeDto.phone}"
+								value="#{registerEmployeeController.employeeDto.phone}"
 								autocomplete="true" required="true"
 								requiredMessage="El Telefono es necesario">
 								<f:facet name="prepend">
@@ -68,7 +68,7 @@ h3 span .ui-icon ui-icon-triangle-1-e {
 
 						<b:column col-lg="5" col-md="6" col-xs="12">
 							<b:inputText id="email" label="Email Empleado"
-								value="#{registroController.employeeDto.email}"
+								value="#{registerEmployeeController.employeeDto.email}"
 								autocomplete="true" required="true"
 								requiredMessage="El email es necesario" />
 							<b:message for="@previous" />
@@ -76,46 +76,59 @@ h3 span .ui-icon ui-icon-triangle-1-e {
 
 						<b:column col-lg="5" col-md="6" col-xs="12">
 							<b:inputSecret id="password" label="Password Empelado"
-								value="#{registroController.employeeDto.password}"
+								value="#{registerEmployeeController.employeeDto.password}"
 								autocomplete="true" required="true"
 								requiredMessage="El password es necesario"></b:inputSecret>
 							<b:message for="@previous" />
 						</b:column>
+
 						<b:column col-lg="5" col-md="6" col-xs="12">
 							<p:outputLabel value="Fecha de contratacion"></p:outputLabel>
-							<p:calendar id="datePicker"
-								value="#{registroController.employeeDto.hireDate}"
+							<br />
+							<p:calendar id="datePicker" inline="false" style="width: 100%;"
+								value="#{registerEmployeeController.selectedDate}"
 								showOn="button" pattern="MM/dd/yyyy" readonlyInput="true"
 								mindate="#{registroController.currentDate}"
 								maxdate="#{registroController.currentDate}"
-								disabledWeekends="true" />
+								disabledWeekends="true" required="true"
+								requiredMessage="Se requiere la fecha de ingreso" />
+						</b:column>
 
+						<b:column col-lg="5" col-md="6" col-xs="12">
+							<p:outputLabel value="Seleccione un item:"></p:outputLabel>
+							<br />
+							<p:selectOneListbox required="true"
+								requiredMessage="Es necesario escoger el puesto del nuevo empleado"
+								id="advanced" filter="true" filterMatchMode="contains"
+								filterNormalize="true"
+								value="#{registerEmployeeController.itemSelected}">
+								<f:selectItems
+									value="#{registerEmployeeController.AllPositionsController()}"
+									var="position" itemValue="#{position.positionID}"
+									itemLabel="#{position.name}" />
+							</p:selectOneListbox>
 						</b:column>
 
 						<b:column col-lg="5" col-md="6" col-xs="12">
 							<p:outputLabel value="Foto Empleado"></p:outputLabel>
-							<p:fileUpload required="true" sizeLimit="102400"
-								allowTypes="/(\.|\/)(png)$/"
+							<p:fileUpload style="width: 100%;" required="true"
+								sizeLimit="690400" allowTypes="/(\.|\/)(png)$/"
 								invalidSizeMessage="Maximum file size allowed is 100 KB"
 								invalidFileMessage="only png is allowed" update="growl"
 								requiredMessage="La imagen es requerida"
-								listener="#{registroController.handleFileUpload}"
+								listener="#{registerEmployeeController.handleFileUpload}"
 								mode="advanced" multiple="false" skinSimple="true" />
 						</b:column>
-
 					</b:row>
 					<b:row>
-						<b:column col-lg="2" col-md="3" col-sm="0" col-xs="0"></b:column>
+						<b:column col-lg="4" col-md="3" col-sm="0" col-xs="0"></b:column>
 						<b:column col-lg="4">
-							<b:commandButton action="#{registroController.saveEmployee()}"
+							<b:commandButton
+								action="#{registerEmployeeController.saveEmployee}"
 								update="registrarUsuario, growl" style="width: 40%"
 								look="success" value="Crear Usuario" />
 						</b:column>
-						<b:column col-lg="4">
-							<b:commandButton style="width: 40%" look="danger"
-								value="Cancelar" />
-						</b:column>
-						<b:column col-lg="2" col-md="3" col-sm="0" col-xs="0"></b:column>
+						<b:column col-lg="4" col-md="3" col-sm="0" col-xs="0"></b:column>
 					</b:row>
 				</b:container>
 			</div>

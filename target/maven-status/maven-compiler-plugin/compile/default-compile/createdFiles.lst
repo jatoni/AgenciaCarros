@@ -2,7 +2,6 @@ com\mx\web\app\entity\TbTransmission.class
 com\mx\web\app\entity\TbInsurancetype.class
 com\mx\web\app\dto\CustomerDto.class
 com\mx\web\app\entity\TbBrand.class
-com\mx\web\app\controller\RegistroController.class
 com\mx\web\app\dao\impl\TbPositionDaoImpl.class
 com\mx\web\app\controller\LoginController.class
 com\mx\web\app\entity\TbSale.class
@@ -15,9 +14,11 @@ com\mx\web\app\entity\TbCustomer.class
 com\mx\web\app\entity\TbColor.class
 com\mx\web\app\entity\TbVehicle.class
 com\mx\web\app\dao\TbEmployeeDao.class
+com\mx\web\app\controller\RegisterEmployeeController.class
 com\mx\web\app\entity\TbInsurance.class
 com\mx\web\app\dao\impl\TbEmployeeDaoImpl.class
 com\mx\web\app\dto\EmployeeDto.class
+com\mx\web\app\controller\RegistroCustomerController.class
 com\mx\web\app\entity\TbPaymentmethod.class
 com\mx\web\app\entity\TbMaintenance.class
 com\mx\web\app\dao\TbCustomerDao.class

@@ -10,6 +10,7 @@ import javax.persistence.Lob;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -27,42 +28,50 @@ public class EmployeeDto implements Serializable {
 
 	@NotEmpty
 	@NotBlank
+	@NotNull
 	@Size(min = 10, max = 100, message = "El correo no puede ser mayor a 100 o menor a 10")
 	@Email(message = "Solo se aceptan correos")
 	private String email;
 
 	@NotEmpty
 	@NotBlank
+	@NotNull
 	@Size(max = 50)
 	private String firstname;
 
 	@NotEmpty
 	@NotBlank
+	@NotNull
 	private Date hireDate;
 
 	@Lob
 	@NotEmpty
 	@NotBlank
+	@NotNull
 	private byte[] imagenEmployeee;
 
 	@NotEmpty
 	@NotBlank
+	@NotNull
 	@Size(max = 50)
 	private String lastName;
 
 	@NotEmpty
 	@NotBlank
+	@NotNull
 	@Size(max = 15)
 	private String password;
 
 	@NotEmpty
 	@NotBlank
+	@NotNull
 	@Size(min = 10, max = 10, message = "Los numeros deben de ser de 10 digitos")
 	@Pattern(regexp = "[0-9]*", message = "Solo se aceptan valores numericos")
 	private String phone;
 
 	@NotEmpty
 	@NotBlank
+	@NotNull
 	private TbPosition tbPosition;
 
 	/**
