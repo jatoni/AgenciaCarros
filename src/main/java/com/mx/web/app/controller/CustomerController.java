@@ -21,7 +21,7 @@ import com.mx.web.app.utils.CommonUtils;
 
 @Named
 @SessionScoped
-public class RegistroCustomerController implements Serializable {
+public class CustomerController implements Serializable {
 
 	private static final long serialVersionUID = -9180958871052015855L;
 

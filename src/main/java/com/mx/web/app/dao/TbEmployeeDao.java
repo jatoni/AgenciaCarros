@@ -3,6 +3,8 @@
  */
 package com.mx.web.app.dao;
 
+import java.util.List;
+
 import com.mx.web.app.dto.EmployeeDto;
 
 /**
@@ -27,4 +29,10 @@ public interface TbEmployeeDao {
 	 * @return {@link Boolean} Retorna un valor boolean
 	 */
 	boolean saveEmployee(EmployeeDto employeeDto);
+
+	/**
+	 * @return {@link List} regresa todos los empleados existentes en la base de
+	 *         datos
+	 */
+	List<EmployeeDto> getAllEmployees();
 }

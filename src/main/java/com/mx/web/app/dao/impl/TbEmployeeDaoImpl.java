@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.EntityManager;
@@ -33,6 +34,8 @@ public class TbEmployeeDaoImpl implements TbEmployeeDao, Serializable {
 	private EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("VelocidadTotal");
 
 	private TbEmployee employee = new TbEmployee();
+
+	private EmployeeDto employeeDto = new EmployeeDto();
 
 	private EntityTransaction et;
 
@@ -72,6 +75,15 @@ public class TbEmployeeDaoImpl implements TbEmployeeDao, Serializable {
 		} finally {
 			em.close();
 		}
+	}
+
+	@Override
+	public List<EmployeeDto> getAllEmployees() {
+		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+		TypedQuery<TbEmployee> employees = em.createNamedQuery("TbEmployee.findAll", TbEmployee.class);
+		List<EmployeeDto> employeesDto = employees.getResultList().stream()
+				.map(employee -> CommonUtils.map(employee, employeeDto)).toList();
+		return employeesDto;
 	}
 
 }

@@ -34,7 +34,7 @@ import com.mx.web.app.utils.CommonUtils;
 
 @Named
 @SessionScoped
-public class RegisterEmployeeController implements Serializable {
+public class EmployeeController implements Serializable {
 	/**
 	 * 
 	 */
@@ -59,10 +59,12 @@ public class RegisterEmployeeController implements Serializable {
 
 	private List<TbPosition> listPosition;
 
+	private List<EmployeeDto> listEmployees;
+
 	@PostConstruct
 	public void init() {
 		this.listPosition = tbPositionDaoImpl.getAllPositions();
-		System.out.println(this.listPosition);
+		this.listEmployees = tbEmployeeDaoImpl.getAllEmployees();
 		selectedDate = new Date();
 		currentDate = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
 	}
@@ -185,6 +187,20 @@ public class RegisterEmployeeController implements Serializable {
 	 */
 	public void setListPosition(List<TbPosition> listPosition) {
 		this.listPosition = listPosition;
+	}
+
+	/**
+	 * @return the listEmployees
+	 */
+	public List<EmployeeDto> getListEmployees() {
+		return listEmployees;
+	}
+
+	/**
+	 * @param listEmployees the listEmployees to set
+	 */
+	public void setListEmployees(List<EmployeeDto> listEmployees) {
+		this.listEmployees = listEmployees;
 	}
 
 }

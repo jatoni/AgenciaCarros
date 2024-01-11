@@ -26,6 +26,8 @@ public class EmployeeDto implements Serializable {
 	 */
 	private static final long serialVersionUID = -947002802740308383L;
 
+	private long employeeID;
+
 	@NotEmpty
 	@NotBlank
 	@NotNull
@@ -73,6 +75,20 @@ public class EmployeeDto implements Serializable {
 	@NotBlank
 	@NotNull
 	private TbPosition tbPosition;
+
+	/**
+	 * @return the employeeID
+	 */
+	public long getEmployeeID() {
+		return employeeID;
+	}
+
+	/**
+	 * @param employeeID the employeeID to set
+	 */
+	public void setEmployeeID(long employeeID) {
+		this.employeeID = employeeID;
+	}
 
 	/**
 	 * @return the email
