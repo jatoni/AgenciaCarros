@@ -1,0 +1,31 @@
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="contenido">
+		<div class="card">
+			<h:form>
+				<p:growl id="messages" showDetail="true" />
+
+				<span class="ui-float-label"> <p:inputText id="float-input"
+						value="#{fileController.nombreUsuario}" /> <p:outputLabel
+						for="@previous" value="Nombre de usuario" />
+				</span>
+
+				<p:signature style="width:400px; height:200px" widgetVar="sig"
+					value="#{fileController.signature}" required="true"
+					guideline="true" />
+
+				<div style="margin: 20px 0">
+					<p:commandButton value="Guardar Firma"
+						action="#{fileController.procesarImagen}" update="messages" />
+					<p:commandButton value="Clear" icon="pi pi-times" type="button"
+						onclick="PF('sig').clear()" styleClass="ui-button-flat ml-2" />
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

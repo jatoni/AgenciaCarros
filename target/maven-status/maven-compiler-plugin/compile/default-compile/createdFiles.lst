@@ -11,14 +11,15 @@ com\mx\web\app\dao\TbPositionDao.class
 com\mx\web\app\utils\CommonUtils.class
 com\mx\web\app\entity\TbPosition.class
 com\mx\web\app\entity\TbCustomer.class
+com\mx\web\app\controller\CustomerController.class
 com\mx\web\app\entity\TbColor.class
 com\mx\web\app\entity\TbVehicle.class
 com\mx\web\app\dao\TbEmployeeDao.class
-com\mx\web\app\controller\RegisterEmployeeController.class
 com\mx\web\app\entity\TbInsurance.class
 com\mx\web\app\dao\impl\TbEmployeeDaoImpl.class
 com\mx\web\app\dto\EmployeeDto.class
-com\mx\web\app\controller\RegistroCustomerController.class
 com\mx\web\app\entity\TbPaymentmethod.class
 com\mx\web\app\entity\TbMaintenance.class
+com\mx\web\app\controller\fileController.class
 com\mx\web\app\dao\TbCustomerDao.class
+com\mx\web\app\controller\EmployeeController.class

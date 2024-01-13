@@ -79,6 +79,7 @@ public class TbEmployeeDaoImpl implements TbEmployeeDao, Serializable {
 
 	@Override
 	public List<EmployeeDto> getAllEmployees() {
+
 		EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
 		TypedQuery<TbEmployee> employees = em.createNamedQuery("TbEmployee.findAll", TbEmployee.class);
 		List<EmployeeDto> employeesDto = employees.getResultList().stream()
