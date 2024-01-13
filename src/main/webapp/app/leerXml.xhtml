@@ -1,0 +1,44 @@
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="contenido">
+		<style>
+.ui-fileupload .ui-fileupload-cancel {
+	background-color: #f44336;
+	color: #FFFFFF;
+	border: none;
+}
+
+.ui-fileupload .ui-fileupload-upload {
+	background-color: #008000;
+	border: none;
+}
+
+.ui-fileupload .ui-fileupload-cancel:hover {
+	background-color: #DC143C;
+}
+
+.ui-fileupload .ui-fileupload-upload:hover {
+	background-color: #1a763e;
+}
+</style>
+		<div class="card">
+			<h:form id="formXml" rendered="true">
+				<p:growl id="messages" showDetail="true" />
+				<p:fileUpload cancelLabel="Cancelar" uploadLabel="Cargar"
+					label="Selecciona Archivo" mode="advanced" multiple="false"
+					sizeLimit="102400" allowTypes="/(\.|\/)(xml)$/"
+					invalidSizeMessage="El tamaño máximo permitido es 100 KB"
+					invalidFileMessage="Solo .xml son aceptados" update="messages"
+					listener="#{xmlController.handleFileUpload}" />
+
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
