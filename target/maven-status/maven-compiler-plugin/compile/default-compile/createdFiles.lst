@@ -20,6 +20,7 @@ com\mx\web\app\dao\impl\TbEmployeeDaoImpl.class
 com\mx\web\app\dto\EmployeeDto.class
 com\mx\web\app\entity\TbPaymentmethod.class
 com\mx\web\app\entity\TbMaintenance.class
+com\mx\web\app\controller\XmlController.class
 com\mx\web\app\controller\fileController.class
 com\mx\web\app\dao\TbCustomerDao.class
 com\mx\web\app\controller\EmployeeController.class

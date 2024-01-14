@@ -3,33 +3,17 @@
  */
 package com.mx.web.app.controller;
 
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Base64;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-import javax.imageio.ImageIO;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-import org.apache.poi.util.Units;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import org.apache.poi.xwpf.usermodel.XWPFRun;
-
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.WriterException;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.QRCodeWriter;
-import com.mx.web.app.utils.CommonUtils;
+import org.primefaces.model.file.UploadedFile;
 
 /**
  * @author Usuario 2
@@ -45,104 +29,47 @@ public class fileController implements Serializable {
 	 */
 	private static final long serialVersionUID = -4009935993958059606L;
 
-	private String signature;
-
 	private String nombreUsuario;
 
-	private static final int imageType = XWPFDocument.PICTURE_TYPE_PNG;
+	private String signature;
 
-	private int width = 500;
-	private int height = 500;
+	private UploadedFile firmaFile;
 
-	public void procesarImagen() {
-		String ruta = "C:\\Users\\Usuario 2\\Documents\\imagen.jpg";
-
-		if (generarImagenconCodigoQR(signature, ruta)) {
-			CommonUtils.showMessage(FacesMessage.SEVERITY_INFO, "Exito", "Se guardo con exito la imagen");
-		} else {
-			CommonUtils.showMessage(FacesMessage.SEVERITY_ERROR, "Error", "Error al guardar la imagen");
-		}
+	/**
+	 * @return the firmaFile
+	 */
+	public UploadedFile getFirmaFile() {
+		return firmaFile;
 	}
 
-	public boolean generarImagenconCodigoQR(String data, String rutaImagen) {
-		Map<EncodeHintType, Object> hintMap = new HashMap<>();
-		hintMap.put(EncodeHintType.CHARACTER_SET, "UTF-8");
-		try {
-			// Crear el código QR
-			BitMatrix bitMatrix = new QRCodeWriter().encode(data, BarcodeFormat.QR_CODE, width, height, hintMap);
+	public void guardarFirma() {
+		// Obtenemos la firma como datos URL (base64) usando JavaScript
+		String firmaDataURL = signature;
 
-			// Guardar la imagen en el archivo
-			MatrixToImageWriter.writeToPath(bitMatrix, "PNG", new File(rutaImagen).toPath());
-			return true;
-		} catch (WriterException | IOException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+		// Examinamos y extraemos la parte de datos base64
+		String[] partes = firmaDataURL.split(",");
+		if (partes.length == 2) {
+			String base64Data = partes[1];
 
-	public byte[] comprimirFirma(String firma) {
-		try  {
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return null;
-	}
+			// Decodificamos la parte base64 a bytes
+			byte[] firmaBytes = Base64.getDecoder().decode(base64Data);
 
-	public void guardarImage() {
-		FileOutputStream fout = null;
-		XWPFDocument document = null;
-		try {
-			byte[] firmaBytes = signature.getBytes();
+			// Ahora puedes hacer lo que quieras con los bytes de la firma
+			// En este ejemplo, simplemente mostramos un mensaje
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Firma guardada correctamente.", null);
+			FacesContext.getCurrentInstance().addMessage(null, message);
 
-			InputStream inputStream = new ByteArrayInputStream(firmaBytes);
-			BufferedImage imagen = ImageIO.read(inputStream);
-			File archivoImagen = new File("C:\\Users\\Usuario 2\\Documents\\imagen.jpg");
-			ImageIO.write(imagen, "jpg", archivoImagen);
-
-			document = new XWPFDocument();
-
-			XWPFParagraph paragraph = document.createParagraph();
-
-			XWPFRun run = paragraph.createRun();
-
-			fout = new FileOutputStream(new File("C:\\Users\\Usuario 2\\Documents\\wordFile.docx"));
-
-			run.addPicture(inputStream, imageType, "Firma Digital", Units.toEMU(width), Units.toEMU(height));
-			document.write(fout);
-
-		} catch (Exception e) {
-			CommonUtils.showMessage(FacesMessage.SEVERITY_ERROR, "Error al guardar al empleado", "");
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-		} finally {
 			try {
-				if (fout != null) {
-					fout.close();
-				}
-				if (document != null) {
-					document.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
+//				firmaFile = new MyUploadedFile(base64Data);
+			} catch (Exception e) {
+				// TODO: handle exception
 			}
-
+		} else {
+			// Manejar el error si no se puede extraer la parte base64
+			FacesMessage errorMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error al obtener la firma.",
+					null);
+			FacesContext.getCurrentInstance().addMessage(null, errorMessage);
 		}
-
-	}
-
-	/**
-	 * @return the signature
-	 */
-	public String getSignature() {
-		return signature;
-	}
-
-	/**
-	 * @param signature the signature to set
-	 */
-	public void setSignature(String signature) {
-		this.signature = signature;
 	}
 
 	/**
@@ -157,6 +84,20 @@ public class fileController implements Serializable {
 	 */
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
+	}
+
+	/**
+	 * @return the signature
+	 */
+	public String getSignature() {
+		return signature;
+	}
+
+	/**
+	 * @param signature the signature to set
+	 */
+	public void setSignature(String signature) {
+		this.signature = signature;
 	}
 
 }
