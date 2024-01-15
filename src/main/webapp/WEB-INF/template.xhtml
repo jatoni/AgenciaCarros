@@ -9,43 +9,64 @@
 		href="#{request.contextPath}/resources/css/menu.css" />
 	<meta name="viewport"
 		content="user-scalable=no, width=device-width, initial-scale=1" />
+	<h:outputScript library="resources/js" name="index.js" target="head" />
 </h:head>
-<h:body>
+<h:body style="height: 1000px; background-color: #EDF0F2;">
 	<style>
 body {
 	margin: 0px;
 	padding: 0px;
 }
 </style>
-	<div class="containerInicio">
-		<div class="containerMenu">
-			<h:form>
-				<p:growl id="messages" showDetail="true" />
+	<script src="#{request.contextPath}/resources/js/index.js" />
+	<div class="header">
+		<h:form>
+			<p:growl id="messages" />
+			<p:menubar
+				style="background-color: #0C231E
+			; height: 10%; border-radius: 0px; position: sticky;">
+				<p:submenu style="float: right;" label="Perfil">
+					<p:menuitem style="background-color: #10312B;" value="Delete" />
+					<p:divider />
+					<p:menuitem style="background-color: #10312B;" value="Export" />
+				</p:submenu>
+				<p:menuitem styleClass="menu-item-with-image" value="imagen">
+					<img
+						src="#{request.contextPath}/resources/assets/gobiernoDeMexicoW.png"></img>
+				</p:menuitem>
+				<p:menuitem onclick="colapsarMenu()" style="text-align: center;"
+					icon="pi pi-align-justify"></p:menuitem>
+			</p:menubar>
 
-				<div class="card">
+		</h:form>
+	</div>
+	<div class="containerInicio">
+		<header class="containerMenu" id="contenedorMenu">
+			<div class="card" id="menuCard">
+				<h:form>
+					<p:growl id="messages" showDetail="true" />
 					<p:menu>
-						<p:menuitem value="Save (Non-Ajax)" action="#{menuView.save}"
-							update="messages" ajax="false" icon="pi pi-save" />
-						<p:menuitem value="Update" action="#{menuView.update}"
-							update="messages" icon="pi pi-refresh" />
-						<p:menuitem value="Delete" action="#{menuView.delete}"
-							update="messages" icon="pi pi-times" />
-						<p:menuitem value="Website" url="http://www.primefaces.org"
-							icon="pi pi-external-link" />
-						<p:menuitem value="Internal" icon="pi pi-upload" />
-						<p:menuitem value="Update (right click open in new tab)"
-							action="#{menuView.update}" update="messages"
-							url="http://www.primefaces.org" icon="pi pi-thumbs-up" />
+						<p:menuitem icon="pi pi-home" value="Inicio" />
+						<p:menuitem icon="pi pi-desktop" value="Informatica" />
+						<p:menuitem icon="pi pi-box" value="Almacenes" />
+						<p:menuitem icon="pi pi-briefcase" value="Produccion" />
+						<p:menuitem value="Ingenieria" />
+						<p:menuitem icon="pi pi-check" value="Calidad" />
+						<p:menuitem icon="pi pi-shopping-bag" value="Adquisiciones" />
+						<p:menuitem icon="pi pi-book" value="Investigacion Mercado" />
+						<p:menuitem icon="pi pi-dollar" value="Finanzas" />
+						<p:menuitem icon="pi pi-trash" value="Desechos Industriales" />
+						<p:menuitem icon="pi pi-cog" value="Mantenimiento" />
+						<p:menuitem icon="pi pi-wrench" value="Herramientas" />
 					</p:menu>
-				</div>
-			</h:form>
-		</div>
+				</h:form>
+			</div>
+		</header>
 		<div class="ContainerContenido">
 			<p:panel header="Velocidad Total">
 				<ui:insert name="contenido">Contenido</ui:insert>
 			</p:panel>
 		</div>
 	</div>
-
 </h:body>
 </html>
