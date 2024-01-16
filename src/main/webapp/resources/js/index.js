@@ -1,40 +1,64 @@
-const colapsarMenu = () => {
+const handleMenu = (contenedor, ocultarVariable) => {
+	const card = document.querySelector(".card");
 	const contenedorMenu = document.getElementById("contenedorMenu");
 	const ocultar = document.getElementById("ocultar");
-	const card = document.querySelector(".card");
-
 	if (contenedorMenu.clientWidth > 0) {
 
-		//Esto va a funcionar para hacer que el menu se cierre
+		//Sirve para cerrar el contenedorMenu
 		contenedorMenu.classList.add("cerrar");
 		contenedorMenu.classList.remove("abrir");
+
+		//Sirve para hacer el efecto de desvanecer
+		card.classList.remove("opacar");
+		card.classList.add("noOpacar");
+
 		ocultar.classList.add("cerrar");
 		ocultar.classList.remove("abrir");
 
-		//Esto es para que se quite
 		contenedorMenu.style.width = "0px";
 		ocultar.style.width = "0px";
 
-		card.classList.remove("opacar");
-		card.classList.add("noOpacar");
 		setTimeout(function() {
 			card.style.display = "none"
 		}, 1000);
 
 	} else if (contenedorMenu.style.width <= "0px") {
+
+		//Siver para abrir el contenedorMenu
 		contenedorMenu.classList.remove("cerrar");
 		contenedorMenu.classList.add("abrir");
+
+		//Sirve para hacer el efecto de aparecer
+		card.classList.add("opacar");
+		card.classList.remove("noOpacar");
+
 		ocultar.classList.remove("cerrar");
 		ocultar.classList.add("abrir");
 
+		contenedorMenu.style.width = contenedor;
+		ocultar.style.width = ocultarVariable;
 
-		contenedorMenu.style.width = "17%";
-		ocultar.style.width = "20%";
-
-		card.classList.add("opacar");
-		card.classList.remove("noOpacar");
 		setTimeout(function() {
-			setTimeout(card.style.display = "block", 1000);
-		}, 500);
+			card.style.display = "block"
+		}, 1000);
+
+	}
+}
+
+const colapsarMenu = () => {
+	const pantalla = screen.width;
+	console.log(pantalla);
+	if (pantalla > 1200) {
+		console.log("mayor a 1200");
+		handleMenu("17%", "20%");
+	} else if (pantalla > 800 && pantalla <= 1200) {
+		console.log("mayor a 800 y menor a 1200");
+		handleMenu("30%", "0%");
+	} else if (pantalla > 570 && pantalla <= 800) {
+		console.log("mayor a 570 y menor 800");
+		handleMenu("40%", "0%");
+	} else if (pantalla > 0 && pantalla <= 570) {
+		console.log("mayor a 0 y menor a 570");
+		handleMenu("50%", "0%");
 	}
 }
