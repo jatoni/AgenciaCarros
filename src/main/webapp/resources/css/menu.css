@@ -8,16 +8,15 @@
 	align-items: center;
 }
 
+.ocultar {
+	width: 20%;
+}
+
 .header {
 	background-color: #0C231E;
 	position: sticky;
 	top: 0;
 	z-index: 1;
-}
-
-.menu-sticky {
-	position: sticky;
-	top: 20%;
 }
 
 .menu-item-with-image img {
@@ -31,9 +30,11 @@
 }
 
 .containerMenu {
-	width: 300px;
+	width: 17%;
 	background-color: #10312B;
 	height: 100vh;
+	position: fixed;
+	z-index: 1;
 }
 
 .ContainerContenido {
@@ -108,7 +109,7 @@ body .ui-menu .ui-menu-list .ui-menu-child.ui-shadow {
 
 @keyframes cerrar {
 	from {
-		width: 300px;
+		width: 17%;
 
 	}
 
@@ -125,7 +126,7 @@ body .ui-menu .ui-menu-list .ui-menu-child.ui-shadow {
 	}
 
 	to {
-		width: 300px;
+		width: 17%;
 	}
 
 }
