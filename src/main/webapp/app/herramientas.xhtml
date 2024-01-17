@@ -1,0 +1,39 @@
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+
+	<style>
+.ui-icon {
+	font-size: 2rem;
+}
+</style>
+
+	<ui:define name="contenido">
+		<div
+			class="h-21rem xl:h-21rem flex flex-wrap justify-content-center gap-4 align-content-center align-items-center sm:h-screen">
+			<p:linkButton outcome="/app/inicio.xhtml?faces-redirect=true"
+				style="border: none;"
+				styleClass="ui-button-secondary ui-button-secondary shadow-8 w-12rem font-bold h-12rem border-circle text-7xl flex justify-content-center align-content-center align-items-center ">
+				<i class="fas fa-user"></i>
+			</p:linkButton>
+			<p:linkButton outcome="/app/inicio.xhtml?faces-redirect=true"
+				style="border: none;"
+				styleClass="ui-button-secondary ui-button-secondary shadow-8 w-12rem font-bold h-12rem border-circle text-7xl flex justify-content-center align-content-center align-items-center">
+				<i class="fas fa-pencil"></i>
+			</p:linkButton>
+			<p:linkButton outcome="/app/inicio.xhtml?faces-redirect=true"
+				style="border: none;"
+				styleClass="ui-button-secondary ui-button-secondary shadow-8 w-12rem font-bold h-12rem border-circle text-7xl flex justify-content-center align-content-center align-items-center">
+				<i class="fas fa-user-plus"></i>
+			</p:linkButton>
+			<p:linkButton outcome="/app/inicio.xhtml?faces-redirect=true"
+				style="border: none;"
+				styleClass="ui-button-secondary ui-button-secondary shadow-8 w-12rem font-bold h-12rem border-circle text-7xl flex justify-content-center align-content-center align-items-center">
+				<i class="fas fa-eraser"></i>
+			</p:linkButton>
+		</div>
+	</ui:define>
+</ui:composition>

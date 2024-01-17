@@ -24,8 +24,6 @@ h3 span .ui-icon ui-icon-triangle-1-e {
 }
 </style>
 		<h:form id="registrarUsuario">
-			<p:growl id="growl" showDetail="true"
-				skipDetailIfEqualsSummary="true" />
 			<div class="card">
 				<h1>Registro de clientes</h1>
 				<b:container>
@@ -125,7 +123,7 @@ h3 span .ui-icon ui-icon-triangle-1-e {
 						<b:column col-lg="4" col-md="3" col-sm="0" col-xs="0"></b:column>
 						<b:column col-lg="4">
 							<b:commandButton action="#{employeeController.saveEmployee}"
-								update="registrarUsuario, growl"
+								
 								style="width: 40%;
 								margin-top: 10px;" look="success"
 								value="Crear Usuario" />

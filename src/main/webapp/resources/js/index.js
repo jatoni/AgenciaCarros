@@ -15,11 +15,13 @@ const handleMenu = (contenedor, ocultarVariable) => {
 		ocultar.classList.add("cerrar");
 		ocultar.classList.remove("abrir");
 
-		contenedorMenu.style.width = "0px";
-		ocultar.style.width = "0px";
+		//		contenedorMenu.style.width = "0px";
+		//		ocultar.style.width = "0px";
 
 		setTimeout(function() {
-			card.style.display = "none"
+			card.style.display = "none";
+			contenedorMenu.style.display = "none";
+			ocultar.style.display = "none";
 		}, 1000);
 
 	} else if (contenedorMenu.style.width <= "0px") {
@@ -35,11 +37,13 @@ const handleMenu = (contenedor, ocultarVariable) => {
 		ocultar.classList.remove("cerrar");
 		ocultar.classList.add("abrir");
 
-		contenedorMenu.style.width = contenedor;
-		ocultar.style.width = ocultarVariable;
+		//		contenedorMenu.style.width = contenedor;
+		//		ocultar.style.width = ocultarVariable;
 
 		setTimeout(function() {
-			card.style.display = "block"
+			card.style.display = "block";
+			contenedorMenu.style.display = "block";
+			ocultar.style.display = "block";
 		}, 1000);
 
 	}

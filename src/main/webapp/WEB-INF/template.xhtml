@@ -2,11 +2,15 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sec="http://www.springframework.org/security/tags">
 <h:head>
 	<title>Velocidad Total</title>
 	<link rel="stylesheet" type="text/css"
 		href="#{request.contextPath}/resources/css/menu.css" />
+
+	<h:outputStylesheet library="webjars"
+		name="primeflex/3.3.1/primeflex.min.css" />
 
 	<link rel="stylesheet" type="text/css"
 		href="#{request.contextPath}/resources/css/style.css" />
@@ -17,15 +21,7 @@
 		href="#{request.contextPath}/resources/fontawesome/css/all.min.css" />
 </h:head>
 <h:body style="height: 1000px; background-color: #EDF0F2;">
-	<style>
-body {
-	margin: 0px;
-	padding: 0px;
-}
-</style>
 	<script src="#{request.contextPath}/resources/js/index.js" />
-
-	<!-- 	Aqui empieza el primer menu -->
 
 	<div class="header">
 		<h:form>
@@ -57,27 +53,48 @@ body {
 				<h:form>
 					<p:growl id="messages" showDetail="true" />
 					<p:menu>
-						<p:menuitem icon="fas fa-home" value="Inicio" />
-						<p:menuitem icon="fas fa-computer" value="Informatica" />
-						<p:menuitem icon="fas fa-warehouse" value="Almacenes" />
-						<p:menuitem icon="fas fa-hand" value="Produccion" />
-						<p:menuitem icon="fas fa-helmet-safety" value="Ingenieria" />
-						<p:menuitem icon="fas fa-star" value="Calidad" />
-						<p:menuitem icon="fas fa-shop" value="Adquisiciones" />
-						<p:menuitem icon="fas fa-magnifying-glass-chart"
-							value="Investigacion Mercado" />
-						<p:menuitem icon="fas fa-money-bill-trend-up" value="Finanzas" />
-						<p:menuitem icon="fas fa-industry" value="Desechos Industriales" />
-						<p:menuitem icon="fas fa-user-gear" value="Mantenimiento" />
-						<p:menuitem icon="fas fa-screwdriver-wrench" value="Herramientas" />
+						<sec:authorize access="hasRole('ROLE_USUARIO')">
+							<p:menuitem icon="fas fa-home" value="Inicio"
+								action="/app/inicio.xhtml?faces-redirect=true" />
+						</sec:authorize>
+						<sec:authorize>
+							<p:menuitem icon="fas fa-computer" value="Informatica" />
+							<p:menuitem icon="fas fa-warehouse" value="Almacenes" />
+							<p:menuitem icon="fas fa-hand" value="Produccion" />
+							<p:menuitem icon="fas fa-helmet-safety" value="Ingenieria" />
+							<p:menuitem icon="fas fa-star" value="Calidad" />
+							<p:menuitem icon="fas fa-shop" value="Adquisiciones" />
+							<p:menuitem icon="fas fa-magnifying-glass-chart"
+								value="Investigacion Mercado" />
+							<p:menuitem icon="fas fa-money-bill-trend-up" value="Finanzas" />
+							<p:menuitem icon="fas fa-industry" value="Desechos Industriales" />
+							<p:menuitem icon="fas fa-user-gear" value="Mantenimiento" />
+							<p:menuitem icon="fas fa-screwdriver-wrench" value="Herramientas"
+								action="/app/herramientas.xhtml?faces-redirect=true" />
+						</sec:authorize>
+
 					</p:menu>
 				</h:form>
 			</div>
 		</header>
 		<div class="ContainerContenido">
-			<p:panel header="Velocidad Total">
-				<ui:insert name="contenido">Contenido</ui:insert>
-			</p:panel>
+			<p:growl id="growl" showDetail="true"
+				skipDetailIfEqualsSummary="true">
+				<p:autoUpdate />
+			</p:growl>
+
+			<p:ajaxStatus onstart="PF('statusDialog').show()"
+				onsuccess="PF('statusDialog').hide()" />
+
+			<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+				closable="false" resizable="false" showHeader="false"
+				style="z-index: 5000 !important;">
+				<p:graphicImage name="/assets/load.gif" alt="cargando" />
+				<br />
+				<p:outputLabel value="Estamos Trabajando, por favor, espere..." />
+				<br />
+			</p:dialog>
+			<ui:insert name="contenido">Contenido</ui:insert>
 		</div>
 	</div>
 </h:body>
