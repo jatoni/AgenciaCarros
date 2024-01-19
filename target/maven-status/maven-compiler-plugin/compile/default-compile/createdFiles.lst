@@ -1,7 +1,9 @@
+com\mx\web\app\entity\Correo.class
 com\mx\web\app\entity\TbBrand.class
 com\mx\web\app\controller\LoginController.class
 com\mx\web\app\dao\impl\TbCustomerDaoImpl.class
 com\mx\web\app\entity\TbEmployee.class
+com\mx\web\app\entity\Telefono.class
 com\mx\web\app\dao\TbPositionDao.class
 com\mx\web\app\utils\CommonUtils.class
 com\mx\web\app\entity\TbCustomer.class
@@ -10,6 +12,7 @@ com\mx\web\app\entity\TbColor.class
 com\mx\web\app\entity\TbVehicle.class
 com\mx\web\app\dao\TbEmployeeDao.class
 com\mx\web\app\entity\TbInsurance.class
+com\mx\web\app\entity\Usuario.class
 com\mx\web\app\entity\TbMaintenance.class
 com\mx\web\app\dao\TbCustomerDao.class
 com\mx\web\app\entity\TbTransmission.class
@@ -21,6 +24,7 @@ com\mx\web\app\entity\TbPosition.class
 com\mx\web\app\dao\impl\TbEmployeeDaoImpl.class
 com\mx\web\app\dto\EmployeeDto.class
 com\mx\web\app\entity\TbPaymentmethod.class
+com\mx\web\app\controller\UsuarioVistaController.class
 com\mx\web\app\controller\XmlController.class
 com\mx\web\app\controller\fileController.class
 com\mx\web\app\controller\EmployeeController.class

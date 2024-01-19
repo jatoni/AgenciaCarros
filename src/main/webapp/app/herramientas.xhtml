@@ -14,26 +14,27 @@
 	<ui:define name="contenido">
 		<div
 			class="h-21rem xl:h-21rem flex flex-wrap justify-content-center gap-4 align-content-center align-items-center sm:h-screen">
-			<p:linkButton outcome="/app/inicio.xhtml?faces-redirect=true"
+			<p:linkButton outcome="/app/usuarioVista.xhtml?faces-redirect=true"
 				style="border: none;"
-				styleClass="ui-button-secondary ui-button-secondary shadow-8 w-12rem font-bold h-12rem border-circle text-7xl flex justify-content-center align-content-center align-items-center ">
-				<i class="fas fa-user"></i>
+				styleClass="ui-button-secondary ui-button-secondary shadow-8 w-12rem font-bold h-12rem border-circle text-7xl flex flex-column justify-content-center align-content-center align-items-center ">
+				<div
+					class="flex flex-column justify-content-center align-items-center align-content-center gap-4">
+					<i class="fas fa-user"></i>
+					<p:outputLabel styleClass="font-bold text-3xl" value="Usuario"></p:outputLabel>
+				</div>
 			</p:linkButton>
-			<p:linkButton outcome="/app/inicio.xhtml?faces-redirect=true"
-				style="border: none;"
-				styleClass="ui-button-secondary ui-button-secondary shadow-8 w-12rem font-bold h-12rem border-circle text-7xl flex justify-content-center align-content-center align-items-center">
-				<i class="fas fa-pencil"></i>
-			</p:linkButton>
-			<p:linkButton outcome="/app/inicio.xhtml?faces-redirect=true"
-				style="border: none;"
-				styleClass="ui-button-secondary ui-button-secondary shadow-8 w-12rem font-bold h-12rem border-circle text-7xl flex justify-content-center align-content-center align-items-center">
-				<i class="fas fa-user-plus"></i>
-			</p:linkButton>
-			<p:linkButton outcome="/app/inicio.xhtml?faces-redirect=true"
-				style="border: none;"
-				styleClass="ui-button-secondary ui-button-secondary shadow-8 w-12rem font-bold h-12rem border-circle text-7xl flex justify-content-center align-content-center align-items-center">
-				<i class="fas fa-eraser"></i>
-			</p:linkButton>
+
+
+			<div
+				class="flex flex-column justify-content-center align-items-center align-content-center gap-4">
+				<p:linkButton outcome="/app/inicio.xhtml?faces-redirect=true"
+					style="border: none;"
+					styleClass="ui-button-secondary ui-button-secondary shadow-8 w-12rem font-bold h-12rem border-circle text-7xl flex justify-content-center align-content-center align-items-center">
+					<i class="fas fa-book-open"></i>
+				</p:linkButton>
+				<p:outputLabel styleClass="font-bold text-3xl text-900"
+					value="Catalogos"></p:outputLabel>
+			</div>
 		</div>
 	</ui:define>
 </ui:composition>
