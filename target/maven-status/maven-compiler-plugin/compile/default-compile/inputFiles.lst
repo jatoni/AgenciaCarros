@@ -10,6 +10,8 @@ C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbBrand.java
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dto\EmployeeDto.java
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbSale.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\Correo.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\Telefono.java
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\controller\CustomerController.java
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbPaymentmethod.java
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dao\impl\TbPositionDaoImpl.java
@@ -18,6 +20,8 @@ C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\controller\XmlController.java
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbInsurance.java
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbEmployee.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\controller\UsuarioVistaController.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\Usuario.java
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dao\TbCustomerDao.java
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbMaintenance.java
 C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dao\impl\TbCustomerDaoImpl.java

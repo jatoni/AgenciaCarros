@@ -1,0 +1,101 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sec="http://www.springframework.org/security/tags">
+<h:head>
+	<title>Velocidad Total</title>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/menu.css" />
+
+	<h:outputStylesheet library="webjars"
+		name="primeflex/3.3.1/primeflex.min.css" />
+
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/style.css" />
+	<meta name="viewport"
+		content="user-scalable=no, width=device-width, initial-scale=1" />
+	<h:outputScript library="resources/js" name="index.js" target="head" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/fontawesome/css/all.min.css" />
+</h:head>
+<h:body style="background-color: #EDF0F2;">
+	<script src="#{request.contextPath}/resources/js/index.js" />
+
+	<div class="header">
+		<h:form>
+			<p:growl id="messages" />
+			<p:menubar
+				style="background-color: #0C231E
+			; height: 10%; border-radius: 0px; position: sticky;">
+				<p:submenu style="float: right;" label="Perfil">
+					<p:menuitem style="background-color: #10312B;" value="Delete" />
+					<p:divider />
+					<p:menuitem style="background-color: #10312B;" value="Export" />
+				</p:submenu>
+				<p:menuitem styleClass="menu-item-with-image" value="imagen">
+					<img
+						src="#{request.contextPath}/resources/assets/gobiernoDeMexicoW.png"></img>
+				</p:menuitem>
+				<p:menuitem onclick="colapsarMenu()" style="text-align: center;"
+					icon="fa-solid fa-bars"></p:menuitem>
+			</p:menubar>
+		</h:form>
+	</div>
+
+	<!-- 	Hasta aqui acaba el primer menu -->
+
+	<div class="containerInicio">
+		<div class="ocultar" id="ocultar"></div>
+		<header class="containerMenu" id="contenedorMenu">
+			<div class="card" id="menuCard">
+				<h:form>
+					<p:growl id="messages" showDetail="true" />
+					<p:menu>
+						<sec:authorize access="hasRole('ROLE_USUARIO')">
+							<p:menuitem icon="fas fa-home" value="Inicio"
+								action="/app/inicio.xhtml?faces-redirect=true" />
+						</sec:authorize>
+						<sec:authorize>
+							<p:menuitem icon="fas fa-computer" value="Informatica" />
+							<p:menuitem icon="fas fa-warehouse" value="Almacenes" />
+							<p:menuitem icon="fas fa-hand" value="Produccion" />
+							<p:menuitem icon="fas fa-helmet-safety" value="Ingenieria" />
+							<p:menuitem icon="fas fa-star" value="Calidad" />
+							<p:menuitem icon="fas fa-shop" value="Adquisiciones" />
+							<p:menuitem icon="fas fa-magnifying-glass-chart"
+								value="Investigacion Mercado" />
+							<p:menuitem icon="fas fa-money-bill-trend-up" value="Finanzas" />
+							<p:menuitem icon="fas fa-industry" value="Desechos Industriales" />
+							<p:menuitem icon="fas fa-user-gear" value="Mantenimiento" />
+							<p:menuitem icon="fas fa-screwdriver-wrench" value="Herramientas"
+								action="/app/herramientas.xhtml?faces-redirect=true" />
+						</sec:authorize>
+
+					</p:menu>
+				</h:form>
+			</div>
+		</header>
+		<div class="ContainerContenido">
+			<p:growl id="growl" showDetail="true"
+				skipDetailIfEqualsSummary="true">
+				<p:autoUpdate />
+			</p:growl>
+
+			<p:ajaxStatus onstart="PF('statusDialog').show()"
+				onsuccess="PF('statusDialog').hide()" />
+
+			<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+				closable="false" resizable="false" showHeader="false"
+				style="z-index: 5000 !important;">
+				<p:graphicImage name="/assets/load.gif" alt="cargando" />
+				<br />
+				<p:outputLabel value="Estamos Trabajando, por favor, espere..." />
+				<br />
+			</p:dialog>
+			<ui:insert name="contenido">Contenido</ui:insert>
+		</div>
+	</div>
+</h:body>
+</html>
