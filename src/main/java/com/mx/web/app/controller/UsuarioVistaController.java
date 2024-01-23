@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.mx.web.app.entity.Correo;
@@ -25,22 +26,22 @@ public class UsuarioVistaController implements Serializable {
 
 	private Map<Long, Usuario> usuarios;
 
+	@Inject
 	private Usuario usuarioSeleccionado;
 
 	private List<Usuario> usuariosSeleccionados;
 
 	@PostConstruct
 	public void unit() {
-		this.usuarioSeleccionado = new Usuario();
 		List<Correo> correosUsuario1 = new ArrayList<>();
 		List<Telefono> telefonosUsuario1 = new ArrayList<>();
 		List<Correo> correosUsuario2 = new ArrayList<>();
 		List<Telefono> telefonosUsuario2 = new ArrayList<>();
 
-		correosUsuario1.add(new Correo(1L, "juan@gmail.com"));
-		correosUsuario1.add(new Correo(2L, "carlos@gmail.com"));
-		correosUsuario1.add(new Correo(3L, "jazziel@gmail.com"));
-		correosUsuario1.add(new Correo(4L, "jair@gmail.com"));
+		correosUsuario1.add(new Correo(1L, "lizethTorres@gmail.com"));
+		correosUsuario1.add(new Correo(2L, "carlosPerez@gmail.com"));
+		correosUsuario1.add(new Correo(3L, "jazzielMario@gmail.com"));
+		correosUsuario1.add(new Correo(4L, "maria@gmail.com"));
 		telefonosUsuario1.add(new Telefono(1L, "5598422985"));
 		telefonosUsuario1.add(new Telefono(2L, "5587239812"));
 		telefonosUsuario1.add(new Telefono(3L, "5687230921"));
@@ -61,7 +62,6 @@ public class UsuarioVistaController implements Serializable {
 	}
 
 	public void handleUsuarioSeleccionado(Usuario usuario) {
-		// setUsuarioSeleccionado(usuario);
 		getUsuarioSeleccionado().setNombre(usuario.getNombre());
 		System.out.println(getUsuarioSeleccionado().getNombre());
 

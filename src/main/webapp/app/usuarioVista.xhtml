@@ -87,6 +87,16 @@
 						sortBy="#{usuario.correos.get(0).correo}"
 						filterBy="#{usuario.correos.get(0)}">
 						<h:outputText value="#{usuario.correos.get(0).correo}" />
+						<p:commandButton icon="pi pi-at"
+							update=":dialogsCorreo:correos-asociados"
+							oncomplete="PF('correosAsociados').show()"
+							styleClass="edit-button rounded-button ui-button-success"
+							process="@this"
+							style="background: #5bc0de; border-color: #5bc0de">
+							<f:setPropertyActionListener value="#{usuario}"
+								target="#{usuarioVistaController.usuarioSeleccionado}" />
+							<p:resetInput target=":dialogsCorreo:correos-asociados"></p:resetInput>
+						</p:commandButton>
 					</p:column>
 					<p:column headerText="Telefono"
 						sortBy="#{usuario.telefonos.get(0).telefono}">
@@ -114,6 +124,26 @@
 					</p:column>
 
 				</p:dataTable>
+			</h:form>
+
+			<h:form id="dialogsCorreo">
+				<p:confirmDialog widgetVar="correosAsociados" showEffect="fade"
+					width="300" header="Correos Asociados" responsive="true"
+					modal="true">
+					<p:outputPanel id="correos-asociados" class="ui-fluid">
+						<p:outputPanel
+							redered="#{not empty usuarioVistaController.usuarioSeleccionado}">
+							<div
+								class="flex flex-column align-content-center justify-content-center flex-wrap">
+								<ui:repeat var="correo"
+									value="#{usuarioVistaController.usuarioSeleccionado.correos}">
+									<a href="mailto:#{correo.correo}"><h:outputLabel
+											value="#{correo.correo}" /></a>
+								</ui:repeat>
+							</div>
+						</p:outputPanel>
+					</p:outputPanel>
+				</p:confirmDialog>
 			</h:form>
 
 			<h:form id="dialogs">
