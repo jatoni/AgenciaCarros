@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sec="http://www.springframework.org/security/tags">
+<h:head>
+	<!-- 	<link rel="icon" href="tec_nac.png" /> -->
+	<title>MRP</title>
+	<h:outputStylesheet library="webjars"
+		name="primeflex/3.3.1/primeflex.min.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<b:navBar href="#" inverse="false" fluid="true" style="height:80px;">
+			<b:row>
+				<b:column span="4">
+					<b:navbarLinks pull="left">
+						<b:navLink>
+							<b:dropMenu value="Menú" iconAwesome="fa-bars" size="3x">
+								<sec:authorize access="hasRole('ROLE_ADMINISTRADOR')">
+									<b:navCommandLink iconAwesome="fa-home"
+										action="/app/dashboard.xhtml?faces-redirect=true;"
+										value="Inicio" href="#" />
+									<b:navCommandLink iconAwesome="fa-list-ol"
+										action="/app/conversion.xhtml?faces-redirect=true;"
+										value="Conversiones" href="#" />
+									<b:navCommandLink iconAwesome="fa-paste"
+										action="/app/altaFactura.xhtml?faces-redirect=true;"
+										value="Alta factura" href="#" />
+								</sec:authorize>
+								<sec:authorize access="hasRole('ROLE_USUARIO')">
+									<b:navCommandLink iconAwesome="fa-home"
+										action="/app/dashboard.xhtml?faces-redirect=true;"
+										value="Inicio" href="#" />
+								</sec:authorize>
+							</b:dropMenu>
+						</b:navLink>
+
+					</b:navbarLinks>
+				</b:column>
+				<b:column span="4">
+
+					<!-- <div align="center">
+						<b:image name="Tecnologico" value="/recursos/logo.png"
+							width="150px" />
+					</div> -->
+				</b:column>
+				<b:column span="4">
+
+					<b:navbarLinks pull="right">
+						<b:navLink value="" href="#" pull="left">
+							<b:dropMenu style=" color:black;"
+								value="#{sesion.usuarioSesion.usuario.nombre} #{sesion.usuarioSesion.usuario.apellidoPaterno} #{sesion.usuarioSesion.usuario.apellidoMaterno}"
+								iconAwesome="fa-user" size="3x">
+								<b:navCommandLink value="Cerrar Sesión"
+									action="#{cerrarSesion.doLogout()}" iconAwesome="fa-sign-out" />
+
+								<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}" />
+							</b:dropMenu>
+						</b:navLink>
+					</b:navbarLinks>
+				</b:column>
+			</b:row>
+		</b:navBar>
+	</h:form>
+
+	<b:panel layout="fluid">
+		<b:column col-sm="12" offset-sm="0" col-md="12" offset="0" col-xs="12">
+
+			<b:growl id="growlA" placementFrom="bottom" show-detail="true"
+				global-only="false" show-summary="true" allow-dismiss="true"
+				animation-enter="animated bounceInDown"
+				animation-exit="animated flipOutX" escape="true" sticky="true"
+				autoUpdate="true" life="10000" globalOnly="true" redisplay="true"
+				showDetail="false">
+				<p:autoUpdate />
+			</b:growl>
+
+			<p:ajaxStatus onstart="PF('statusDialog').show()"
+				onsuccess="PF('statusDialog').hide()" />
+
+			<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+				closable="false" resizable="false" showHeader="false"
+				style="z-index: 5000 !important;">
+				<b:image value="/recursos/load.gif" />
+				<br />
+				<p:outputLabel value="Estamos Trabajando, por favor, espere..." />
+				<br />
+			</p:dialog>
+
+			<ui:insert name="content">contenido</ui:insert>
+
+		</b:column>
+
+	</b:panel>
+
+</h:body>
+</html>

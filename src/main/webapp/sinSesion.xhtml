@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+
+	<h:outputStylesheet library="webjars"
+		name="primeflex/3.3.1/primeflex.min.css" />
+	<title>MRP</title>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/menu.css" />
+
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/style.css" />
+	<meta name="viewport"
+		content="user-scalable=no, width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/fontawesome/css/all.min.css" />
+	<script type="text/javascript">
+
+	window.onload = function carga() {
+		// Estoy asumiendo que query es window.location.search.substring(1);
+		var divError = document.getElementById("errorDiv");
+		divError.style.display = "none";
+		var url = window.location.search.substring(1);
+		if(url=="error=login_failed"){
+			divError.style.display = "block";
+		}
+		}
+		
+	</script>
+	<!-- <link
+		href="${facesContext.externalContext.requestContextPath}/recursos/stylerTemplateSinSesion.css"
+		rel="stylesheet" type="text/css" /> -->
+</h:head>
+<h:body>
+	<div class="header">
+		<h:form>
+			<p:growl id="messages" />
+			<p:menubar
+				style="background-color: #0C231E
+			; height: 10%; border-radius: 0px; position: sticky;">
+
+				<p:menuitem styleClass="menu-item-with-image" value="imagen">
+					<img
+						src="#{request.contextPath}/resources/assets/gobiernoDeMexicoW.png"></img>
+				</p:menuitem>
+			</p:menubar>
+		</h:form>
+	</div>
+
+</h:body>
+</html>

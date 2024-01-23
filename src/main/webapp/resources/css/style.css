@@ -7,8 +7,5 @@
 body {
 	margin: 0px;
 	padding: 0px;
-}
-
-body .ui-button {
-	background-color: red;
+	font-family: 'Rubik';
 }
