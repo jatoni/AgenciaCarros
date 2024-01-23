@@ -1,8 +1,13 @@
 package com.mx.web.app.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Usuario {
+public class Usuario implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6145856343265805022L;
 	private Long id;
 	private String usuario;
 	private String sargento;

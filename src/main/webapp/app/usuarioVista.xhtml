@@ -137,7 +137,8 @@
 								class="flex flex-column align-content-center justify-content-center flex-wrap">
 								<ui:repeat var="correo"
 									value="#{usuarioVistaController.usuarioSeleccionado.correos}">
-									<a href="mailto:#{correo.correo}"><h:outputLabel
+									<a style="text-decoration: none;"
+										href="mailto:#{correo.correo}"><h:outputLabel
 											value="#{correo.correo}" /></a>
 								</ui:repeat>
 							</div>
