@@ -1,30 +1,31 @@
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dto\CustomerDto.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dao\TbCustomerDao.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\Usuario.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbVehicle.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbBrand.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbCustomer.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\controller\UsuarioVistaController.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dto\EmployeeDto.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\Correo.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbInsurance.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbSale.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\Telefono.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\controller\CustomerController.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dao\impl\TbCustomerDaoImpl.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\controller\EmployeeController.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbColor.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dao\TbPositionDao.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbPaymentmethod.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dao\TbEmployeeDao.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbPosition.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbTransmission.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\utils\CommonUtils.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dao\impl\TbPositionDaoImpl.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\controller\fileController.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\controller\XmlController.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\dao\impl\TbEmployeeDaoImpl.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbMaintenance.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\controller\LoginController.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbInsurancetype.java
-C:\Users\jat_a\eclipse-workspace\agenciaAutos\src\main\java\com\mx\web\app\entity\TbEmployee.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbColor.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dao\TbEmployeeDao.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbTransmission.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbPosition.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\controller\EmployeeController.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\controller\RegistroUsuarioController.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dao\TbPositionDao.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\utils\CommonUtils.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dao\impl\TbEmployeeDaoImpl.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\controller\LoginController.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbBrand.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dto\EmployeeDto.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbSale.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\Correo.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\Telefono.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\controller\CustomerController.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbPaymentmethod.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dao\impl\TbPositionDaoImpl.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbInsurancetype.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\controller\XmlController.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbInsurance.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbEmployee.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\controller\UsuarioVistaController.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\Usuario.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dao\TbCustomerDao.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbMaintenance.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\controller\GenerateSignature.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dao\impl\TbCustomerDaoImpl.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbVehicle.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\dto\CustomerDto.java
+C:\Users\Usuario 2\eclipse-workspace\AgenciaCarros\src\main\java\com\mx\web\app\entity\TbCustomer.java

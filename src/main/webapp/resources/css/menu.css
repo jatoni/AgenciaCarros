@@ -9,6 +9,7 @@
 }
 
 .ocultar {
+	display: none;
 	width: 20%;
 }
 
@@ -34,23 +35,20 @@
 	height: 100vh;
 	position: fixed;
 	z-index: 1;
+	display: none;
 }
 
 @media only screen and (max-width: 570px) {
 	.containerMenu {
 		width: 60%;
 	}
-
 }
-
-
 
 /* Estilos para dispositivos con pantalla entre 801px y 1200px de ancho */
 @media only screen and (min-width: 801px) and (max-width: 1200px) {
 	.containerMenu {
 		width: 30%;
 	}
-
 }
 
 @media only screen and (min-width: 570px) and (max-width: 800px) {
@@ -60,11 +58,9 @@
 }
 
 @media only screen and (min-width: 1201px) {
-
 	.containerMenu {
 		width: 17%;
 	}
-
 }
 
 .ContainerContenido {
